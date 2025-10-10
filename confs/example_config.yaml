@@ -1,12 +1,12 @@
-#Exaple config file for 1-step training. 
-data_dir: /gpfs/work/sharmas/mc-snow-data/big_box_data  #Download the data and change this to the data directory's location
+# Example config file for 1-step training (local Windows, GPU)
+data_dir: "E:/warm rain/warm-rain-emulator/data_mini"
 tot_len: 719
 
-sim_num: 100
+sim_num: 25
 avg_dataloader: True
-single_sim_num: None
+single_sim_num: null
 moment_scheme: 2
-batch_size: 256
+batch_size: 32                               # smoke for small dataset, then rise to 128/256
 
 beta: 0.35
 learning_rate: 1e-4
@@ -29,9 +29,10 @@ hard_constraints_moments: False
 hard_constraints_updates: False
 multi_step: False
 step_size: 1
-max_epochs: 500
+max_epochs: 2                                # change back to 500 later
 use_batch_norm: False
 use_dropout: False
-save_dir: /gpfs/work/sharmas/mc-snow-data/whole_data/skip_loss/lr_scheduler #Change this to the location where you want the model to be saved
-pretrained_dir: null  #Change this to ppint to the saved model weights you want the training to start from
+
+save_dir: "E:/warm rain/warm-rain-emulator/outputs/run_main" 
+pretrained_dir: null
 ro_norm: False

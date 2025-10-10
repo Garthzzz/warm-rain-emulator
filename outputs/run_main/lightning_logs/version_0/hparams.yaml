@@ -1,0 +1,132 @@
+act: !!python/object:torch.nn.modules.activation.ReLU
+  _backward_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _backward_pre_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _buffers: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_hooks_always_called: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_hooks_with_kwargs: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_pre_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_pre_hooks_with_kwargs: !!python/object/apply:collections.OrderedDict
+  - []
+  _is_full_backward_hook: null
+  _load_state_dict_post_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _load_state_dict_pre_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _modules: !!python/object/apply:collections.OrderedDict
+  - []
+  _non_persistent_buffers_set: !!set {}
+  _parameters: !!python/object/apply:collections.OrderedDict
+  - []
+  _state_dict_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _state_dict_pre_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  inplace: false
+  training: true
+avg_dataloader: true
+batch_size: 32
+beta: 0.35
+depth: 9
+hard_constraints_moments: false
+hard_constraints_updates: false
+inputs_mean: !!python/object/apply:numpy.core.multiarray._reconstruct
+  args:
+  - &id001 !!python/name:numpy.ndarray ''
+  - !!python/tuple
+    - 0
+  - !!binary |
+    Yg==
+  state: !!python/tuple
+  - 1
+  - !!python/tuple
+    - 10
+  - &id002 !!python/object/apply:numpy.dtype
+    args:
+    - f4
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - false
+  - !!binary |
+    RvWTRHqREjgYh8pKmo3WJYhFOThKxS5EH600MTQ4MUa/N74vBE7iRA==
+inputs_std: !!python/object/apply:numpy.core.multiarray._reconstruct
+  args:
+  - *id001
+  - !!python/tuple
+    - 0
+  - !!binary |
+    Yg==
+  state: !!python/tuple
+  - 1
+  - !!python/tuple
+    - 10
+  - *id002
+  - false
+  - !!binary |
+    72GRRd3FLzlTyQVMLSYOJ6bpQjmfweBFFX99Mg7+z0mizNExRbehRg==
+learning_rate: 0.0001
+lo_norm: false
+loss_absolute: true
+loss_func: null
+mass_cons_moments: true
+mass_cons_updates: true
+moment_scheme: 2
+multi_step: false
+n_layers: 3
+ns: 200
+p: 0.25
+plot_all_moments: true
+plot_while_training: false
+pretrained_path: null
+ro_norm: false
+save_dir: E:/warm rain/warm-rain-emulator/outputs/run_main
+single_sim_num: null
+step_size: 1
+updates_mean: !!python/object/apply:numpy.core.multiarray._reconstruct
+  args:
+  - *id001
+  - !!python/tuple
+    - 0
+  - !!binary |
+    Yg==
+  state: !!python/tuple
+  - 1
+  - !!python/tuple
+    - 4
+  - *id002
+  - false
+  - !!binary |
+    f6ukOP+PsTUi6W8+IwwCPg==
+updates_std: !!python/object/apply:numpy.core.multiarray._reconstruct
+  args:
+  - *id001
+  - !!python/tuple
+    - 0
+  - !!binary |
+    Yg==
+  state: !!python/tuple
+  - 1
+  - !!python/tuple
+    - 4
+  - *id002
+  - false
+  - !!binary |
+    lleAOQG9aTaiWTo/cUumPg==
+use_batch_norm: false
+use_dropout: false

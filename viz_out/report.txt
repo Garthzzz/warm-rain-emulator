@@ -1,0 +1,19 @@
+Visualization report (lightweight subset)
+ROOT = E:/warm rain/warm-rain-emulator
+SRC_DIR = E:/warm rain/warm-rain-emulator\data_mini
+VIZ_DIR = E:/warm rain/warm-rain-emulator\viz_sample
+OUT_DIR = E:/warm rain/warm-rain-emulator\viz_out
+
+Sampling: TIME_MAX=600, IC_STRIDE=10, SIM_TAKE=5
+
+Shapes:
+  inputs_viz: shape=(600, 72, 5, 9)  (time, IC_sub, sims_sub, feature)
+  outputs_viz: shape=(600, 72, 5, 4)  (time, IC_sub, sims_sub, feature)
+  tend_viz: shape=(600, 72, 5, 4)  (time, IC_sub, sims_sub, feature)
+
+Notes:
+  - Hovmöller: time-height for selected (sim, feature)
+  - Vertical profile: mean across sims with 5–95% band
+  - Time series: mean with 25–75% band across sims
+  - Histogram: per (time, IC) across sims
+  - Correlation: inputs feature correlation per (time, IC)
