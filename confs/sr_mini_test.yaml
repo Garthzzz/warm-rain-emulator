@@ -1,0 +1,67 @@
+# confs/sr_mini_test.yaml
+# ===== 符号回归配置文件 =====
+
+# ===== 数据 =====
+data_dir: "data_mini"
+tot_len: 5
+sim_num: 1
+avg_dataloader: False
+
+# ===== 训练参数 =====
+moment_scheme: 2
+batch_size: 32
+step_size: 1
+max_epochs: 1
+
+# ===== 网络参数 =====
+beta: 0.35
+learning_rate: 1e-4
+loss_func: null
+depth: 9
+
+# ===== 物理约束 =====
+loss_absolute: True
+mass_cons_moments: True
+mass_cons_updates: True
+hard_constraints_moments: False
+hard_constraints_updates: False
+
+# ===== 符号回归专用参数 =====
+sr_config:
+  # 核心参数
+  niterations: 20                 # 迭代次数
+  populations: 10                 # 种群数
+  population_size: 30             # 每个种群大小
+  
+  # 复杂度控制
+  max_complexity: 15              # 最大复杂度
+  maxsize: 15
+  parsimony: 0.01                 # 简约性惩罚
+  
+  # 操作符
+  binary_operators:
+    - "+"
+    - "-"
+    - "*"
+    - "/"
+  
+  unary_operators:
+    - "square"
+    - "sqrt"
+    - "log"
+    - "abs"
+  
+  # 约束
+  constraints:
+    "/": [-1, 9]
+    "log": 3
+  
+  # 其他
+  loss: "L1DistLoss()"
+  # timeout_in_seconds: null      # ← 删除或注释掉这行
+  # warm_start: False             # ← 删除或注释掉这行
+
+# ===== 输出 =====
+save_dir: "outputs/sr_mini_test"
+pretrained_dir: null
+ro_norm: False

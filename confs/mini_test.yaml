@@ -1,0 +1,49 @@
+# ===== 超小数据集配置 =====
+# 对应 data_mini/ 的实际形状: [50, 5, 1, 9]
+
+# ===== 数据路径 =====
+data_dir: "data_mini"              # ← mini数据集目录
+
+# ===== 数据集参数 (必须与实际数据匹配!) =====
+tot_len: 5                         # ← 5个初始条件 (IC)
+sim_num: 1                         # ← 1次重复 (Repeats)
+avg_dataloader: False              # ← 先不平均
+
+# ===== 训练参数 =====
+moment_scheme: 2                   # 2种水成物 (cloud, rain)
+batch_size: 8                      # ← 小数据集用小batch (总样本数很少)
+step_size: 1                       # 单步预测
+max_epochs: 50                     # 快速测试
+
+# ===== 优化器 =====
+beta: 0.35
+learning_rate: 1e-4
+
+# ===== 网络架构 =====
+act: torch.nn.ReLU()
+loss_func: null                    # 默认用SmoothL1Loss
+n_layers: 3                        # 3个隐藏层
+ns: 200                            # 每层200个神经元
+depth: 9                           # 输入维度
+p: 0.25                            # Dropout概率
+
+# ===== 物理约束 =====
+loss_absolute: True                # Loss计算在moments上
+mass_cons_moments: True            # 质量守恒
+mass_cons_updates: True
+hard_constraints_moments: False    # 推理时才用
+hard_constraints_updates: False
+multi_step: False                  # 单步训练
+
+# ===== 其他 =====
+use_batch_norm: False
+use_dropout: False
+single_sim_num: null
+norm: Standard_Norm
+inputs_mean: null
+inputs_std: null
+ro_norm: False
+
+# ===== 输出 =====
+save_dir: "outputs/mini_test"
+pretrained_dir: null
