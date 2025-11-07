@@ -1,0 +1,64 @@
+# confs/sr_ultrafast.yaml
+# ===== Ultra-fast symbolic regression for testing =====
+
+# ===== Data =====
+data_dir: "data_mini"
+tot_len: 5
+sim_num: 1
+avg_dataloader: False
+
+# ===== Training parameters =====
+moment_scheme: 2
+batch_size: 32
+step_size: 1
+max_epochs: 1
+
+# ===== Network parameters (for compatibility) =====
+beta: 0.35
+learning_rate: 1e-4
+loss_func: null
+depth: 9
+
+# ===== Physical constraints =====
+loss_absolute: True
+mass_cons_moments: True
+mass_cons_updates: True
+hard_constraints_moments: False
+hard_constraints_updates: False
+
+# ===== Symbolic Regression Configuration =====
+sr_config:
+  # Core parameters - MINIMAL FOR SPEED
+  niterations: 3           
+  populations: 3           
+  population_size: 20      # 15 → 20 (更保险)
+  
+  # Complexity control
+  max_complexity: 8
+  maxsize: 8
+  parsimony: 0.1           
+  
+  # Operators - MINIMAL SET
+  binary_operators:
+    - "+"
+    - "*"
+    - "/"
+  
+  unary_operators:
+    - "square"
+  
+  # Constraints
+  constraints:
+    "/": [-1, 3]
+    "square": 3
+  
+  # Other
+  loss: "L1DistLoss()"
+  procs: 0
+  multithreading: false
+  # 移除 tournament_selection_n，让PySR自动设置
+
+# ===== Output =====
+save_dir: "outputs/sr_ultrafast"
+pretrained_dir: null
+ro_norm: False
