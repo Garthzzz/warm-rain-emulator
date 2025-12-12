@@ -1,0 +1,81 @@
+# confs/sr_distributional_test.yaml
+# Configuration for Distributional Symbolic Regression
+# Inspired by Wasserstein Distributional Learning (Tang et al., 2023)
+
+# ===== Data Configuration =====
+data_dir: "data_mini"
+tot_len: 5
+sim_num: 1
+avg_dataloader: False
+
+# ===== Training Parameters =====
+moment_scheme: 2
+batch_size: 32
+step_size: 1
+max_epochs: 1
+
+# ===== Network Parameters (for compatibility) =====
+beta: 0.35
+learning_rate: 1e-4
+loss_func: null
+depth: 9
+
+# ===== Physical Constraints =====
+loss_absolute: True
+mass_cons_moments: True
+mass_cons_updates: True
+hard_constraints_moments: False
+hard_constraints_updates: False
+
+# ===== Distributional Symbolic Regression Configuration =====
+# Key Innovation: Predict (μ, σ) instead of point estimates
+sr_config:
+  # Core parameters - balanced for exploration
+  niterations: 10          # Mean models get full iterations
+  populations: 5           # Multiple populations for diversity
+  population_size: 25      # Population size
+  
+  # Complexity control
+  max_complexity: 12       # Allow moderately complex equations
+  maxsize: 12
+  parsimony: 0.01          # Regularization strength
+  
+  # Operators - standard set
+  binary_operators:
+    - "+"
+    - "-"
+    - "*"
+    - "/"
+  
+  unary_operators:
+    - "square"
+    - "sqrt"
+    - "abs"
+  
+  # Constraints to avoid numerical issues
+  constraints:
+    "/": [-1, 5]    # Denominator complexity ≤ 5
+    "sqrt": 3       # sqrt argument complexity ≤ 3
+    "log": 3        # log argument complexity ≤ 3
+  
+  # Loss and optimization
+  loss: "L1DistLoss()"
+  
+  # Performance settings
+  procs: 0              # Number of processes (0 = auto)
+  multithreading: false # Disable for stability
+  
+  # Distributional-specific
+  sigma_init: 0.01      # Initial uncertainty estimate
+
+# ===== Output Configuration =====
+save_dir: "outputs/sr_distributional_test"
+pretrained_dir: null
+ro_norm: False
+
+# ===== Notes =====
+# This configuration trains a distributional SR model that:
+# 1. Predicts mean μ(x) for each output
+# 2. Predicts log_σ(x) to quantify uncertainty
+# 3. Uses two-stage training: first μ, then log_σ based on residuals
+# 4. Provides uncertainty quantification for warm rain predictions

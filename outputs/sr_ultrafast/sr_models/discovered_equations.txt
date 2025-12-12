@@ -7,62 +7,62 @@ DISCOVERED EQUATIONS - Warm Rain Microphysics
 Output 1: dLc_dt
 ----------------------------------------------------------------------
 
-Complexity: 4
-Loss: 0.000000
+Complexity: 3
+Loss: 0.000039
 Equation:
-square(Lc) / Lc
+Lc + -3.860664e-5
 
 SymPy format:
-Lc**2/Lc
+Lc - 3.860664e-5
 
 LaTeX format:
-\frac{Lc^{2}}{Lc}
+Lc - 3.86 \cdot 10^{-5}
 
 
 ----------------------------------------------------------------------
 Output 2: dNc_dt
 ----------------------------------------------------------------------
 
-Complexity: 6
-Loss: 0.000001
+Complexity: 4
+Loss: 0.001707
 Equation:
-(2.1375857e-10 / square(r0)) + Nc
+square(Nc) / L0
 
 SymPy format:
-Nc + 2.1375857e-10/(r0**2)
+Nc**2/L0
 
 LaTeX format:
-Nc + \frac{2.14 \cdot 10^{-10}}{r_{0}^{2}}
+\frac{Nc^{2}}{L_{0}}
 
 
 ----------------------------------------------------------------------
 Output 3: dLr_dt
 ----------------------------------------------------------------------
 
-Complexity: 1
+Complexity: 3
 Loss: 0.000000
 Equation:
-Lr
+Lr + -1.4776924e-9
 
 SymPy format:
-Lr
+Lr - 1.4776924e-9
 
 LaTeX format:
-Lr
+Lr - 1.48 \cdot 10^{-9}
 
 
 ----------------------------------------------------------------------
 Output 4: dNr_dt
 ----------------------------------------------------------------------
 
-Complexity: 6
-Loss: 0.000039
+Complexity: 3
+Loss: 0.000000
 Equation:
-Nr + square(-1.3028502 * -0.0048144488)
+Nr + -2.0437307e-10
 
 SymPy format:
-Nr + 3.93443262758418e-5
+Nr - 2.0437307e-10
 
 LaTeX format:
-Nr + 3.93 \cdot 10^{-5}
+Nr - 2.04 \cdot 10^{-10}
 

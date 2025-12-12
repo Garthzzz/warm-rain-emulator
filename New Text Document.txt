@@ -1,0 +1,5 @@
+E:
+cd "warm rain\warm-rain-emulator"
+conda activate warm-rain
+
+cd "E:\warm rain\warm-rain-emulator"
